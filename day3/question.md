@@ -20,3 +20,7 @@ task 4
 
 dry run = explaining the concept 
 pendulum program 
+
+task 5 
+recurssion = function calling itself 
+add all the numbers up too

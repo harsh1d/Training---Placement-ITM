@@ -1,0 +1,83 @@
+import java.util.List;
+import java.util.ArrayList;
+import java.util.LinkedList;
+
+/*  
+what is a class?
+1. its a userdefined datatype.
+2. its a plan or blueprint to create objects inside gthe
+computer using java language.
+3. class ahas a list of variables for storing data
+4. class has a list of methods or functions to process or perform logic on the listed data inside the class.
+5. so class is summary of what OBJECT HAS AND WHAT OBJECT DOES
+
+*/
+class Icecream
+{  // compiler will generate default constructor
+// and initialize with default Value 0, 0.0,false
+
+    // list of variable
+    int cost;
+    String flavour;
+    int qty;
+    // list of methods
+    public void show()
+    {
+        System.out.println(cost +", "+qty+"," +flavour);
+        System.out.println(" bill = "+(cost*qty));
+    }
+    Icecream(int cost, int qty, String flavour)
+    {
+     this.cost=cost;  this.qty=qty; this.flavour=flavour;   
+    }
+    
+}
+    
+    
+public class Main
+{
+	public static void main(String[] args) {
+		System.out.println("Hello World");
+		// how to simulate or create object or instance 
+		Icecream cone = new Icecream(40,51, "Choclate");
+		// how to simulate or create object or instance 
+		Icecream cup = new Icecream(50, 55, "Butter scotch");
+		// objeccts are saved in heap OutOfMemoryError
+		cone.show();
+		cup.show();
+		System.out.println(cup.flavour);		
+		System.out.println(cup + " , "+cone);
+		
+		// List l1 = new List();
+		// create collections object
+		ArrayList bag = new ArrayList();
+		bag.add("sweets");
+		bag.add("mango");
+		bag.add("pens");
+		System.out.println(" Bag has "+bag);
+		System.out.println(" count "+bag.size());
+		LinkedList<String> colour= new LinkedList();
+		colour.add("Red");
+		colour.add("Yellow");
+		colour.add("Green");
+		colour.add("Green");
+		colour.add("Green");  // can have duplicates
+		System.out.println(" colour has "+colour);
+		System.out.println(" count colour "+colour.size());
+		System.out.println(colour.contains("Balck"));
+		System.out.println(colour.contains("Red"));
+	}
+
+}
+
+// special package called java.util
+/* we need to import java.util package
+4 types of collections
+1. list
+2. Set
+3. Map
+4. Queue
+ all are interfacees
+*/
+
+

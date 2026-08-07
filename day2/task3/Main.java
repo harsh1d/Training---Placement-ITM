@@ -1,6 +1,5 @@
 package day2.task3;
 
-import java.util.List;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -52,13 +51,13 @@ public class Main {
 
         // List l1 = new List();
         // create collections object
-        ArrayList bag = new ArrayList();
+        ArrayList<String> bag = new ArrayList<>();
         bag.add("sweets");
         bag.add("mango");
         bag.add("pens");
         System.out.println(" Bag has " + bag);
         System.out.println(" count " + bag.size());
-        LinkedList<String> colour = new LinkedList();
+        LinkedList<String> colour = new LinkedList<>();
         colour.add("Red");
         colour.add("Yellow");
         colour.add("Green");

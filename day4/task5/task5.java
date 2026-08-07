@@ -44,4 +44,18 @@ public class task5 {
         return number == sumOfDigits(number);
     }
     
+    public static void main(String[] args) {
+        // Test perfect numbers
+        System.out.println("Testing Perfect Numbers:");
+        System.out.println("6 is perfect number: " + isPerfectNumber(6));
+        System.out.println("28 is perfect number: " + isPerfectNumber(28));
+        System.out.println("12 is perfect number: " + isPerfectNumber(12));
+        
+        // Test number equals sum of digits
+        System.out.println("\nTesting Number Equals Sum of Digits:");
+        System.out.println("0 equals sum of digits: " + isNumberEqualToSumOfDigits(0));
+        System.out.println("1 equals sum of digits: " + isNumberEqualToSumOfDigits(1));
+        System.out.println("10 equals sum of digits: " + isNumberEqualToSumOfDigits(10));
+    }
+    
 }

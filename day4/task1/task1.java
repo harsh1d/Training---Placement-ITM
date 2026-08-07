@@ -72,7 +72,7 @@ public class task1 {
             
             // pooping the element 
             int val = stack.pop(); // catch or store the returned value in val
-            System.out.println("Popped : "+ stack.pop());
+            System.out.println("Popped : "+ val);
 
             // checking top element 
             System.out.println("Top element: "+ stack.peek());

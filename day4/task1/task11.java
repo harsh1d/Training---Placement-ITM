@@ -71,7 +71,6 @@ class Main {
         st.push(4);
 
         // popping one element
-        int val = st.pop(); // catch or store the returned value in val
         System.out.println("Popped: " + st.pop());
 
         // checking top element

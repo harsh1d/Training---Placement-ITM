@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-class task3 {
+class task31{
 	public static void main(String[] args) {
 		Set<String> accounts = new HashSet<>();
 		accounts.add("Savings Account");

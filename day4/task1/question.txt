@@ -1,0 +1,26 @@
+stack 
+
+a closed container it contains push pop and peek. the stack is a linear data structure and can be implemented using arrays or linked lists.
+
+use lifo(last in first out) method
+reading from the stack
+
+it can be made by using array list to class 
+
+three tech to use stack class
+
+array = has fixed size and it cannot change its size at run time .
+array list class = in that u can use add method to continue adding the element into the array .
+linked list collection object  = in linked list we have a node which contains data and next pointer . so when you want to insert an element into the list then you need to create a new node with the required value and assign it to head of the list . now if u
+
+isempty in stack = a variable that is used to store the address of topmost element in the stack .
+
+stack is the abstract(incomplete) data type that can be implemented using arrays or linked lists .
+
+its a linear data structure and it has three methods push pop and peek .
+
+practical impeemtnaion 
+
+web browser history 
+undo/ redo
+expression parsing in compilers 

@@ -1,0 +1,32 @@
+code to check if two words are anagrams:
+
+
+import java.util.Arrays;
+
+public class AnagramCheck {
+    public static boolean isAnagram(String s1, String s2) {
+        if (s1.length() != s2.length()) return false;
+
+        char[] c1 = s1.toLowerCase().toCharArray();
+        char[] c2 = s2.toLowerCase().toCharArray();
+
+        Arrays.sort(c1);
+        Arrays.sort(c2);
+
+        return Arrays.equals(c1, c2);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(isAnagram("listen", "silent")); // true
+        System.out.println(isAnagram("hello", "world")); // false
+    }
+}
+
+
+	 How it works
+1. Check length match
+2. Convert to lowercase + char arrays
+3. Sort arrays
+4. Compare sorted arrays
+
+Want me to show a more efficient approach (O(n))?

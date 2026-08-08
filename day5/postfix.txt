@@ -1,0 +1,71 @@
+import java.util.Stack;
+
+public class PostfixEvaluator {
+    public static void main(String[] args) {
+        // Space-separated postfix expression: (2 + 3) * 5
+        String expression = "2 3 + 5 *"; 
+        
+        try {
+            int result = evaluatePostfix(expression);
+            System.out.println("Postfix Expression: " + expression);
+            System.out.println("Evaluation Result: " + result);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+
+    public static int evaluatePostfix(String expression) {
+        Stack<Integer> stack = new Stack<>();
+        
+        // Split the string by spaces to handle multi-digit numbers properly
+        String[] tokens = expression.split("\\s+");
+
+        for (String token : tokens) {
+            // Check if the token is an operator
+            if (isOperator(token)) {
+                // If there are fewer than 2 numbers, the expression is invalid
+                if (stack.size() < 2) {
+                    throw new IllegalArgumentException("Invalid postfix expression.");
+                }
+                
+                // Pop the top two operands
+                int operand2 = stack.pop(); // Second operand is popped first
+                int operand1 = stack.pop(); // First operand is popped second
+                
+                // Perform calculation and push result back to stack
+                int result = applyOperator(token, operand1, operand2);
+                stack.push(result);
+            } else {
+                // Token is a number, parse and push it
+                try {
+                    stack.push(Integer.parseInt(token));
+                } catch (NumberFormatException e) {
+                    throw new IllegalArgumentException("Invalid character found: " + token);
+                }
+            }
+        }
+
+        // The final remaining element in the stack is the result
+        if (stack.size() != 1) {
+            throw new IllegalArgumentException("Invalid postfix expression.");
+        }
+
+        return stack.pop();
+    }
+
+    private static boolean isOperator(String token) {
+        return token.equals("+") || token.equals("-") || token.equals("*") || token.equals("/");
+    }
+
+    private static int applyOperator(String operator, int op1, int op2) {
+        switch (operator) {
+            case "+": return op1 + op2;
+            case "-": return op1 - op2;
+            case "*": return op1 * op2;
+            case "/": 
+                if (op2 == 0) throw new ArithmeticException("Division by zero.");
+                return op1 / op2;
+            default: throw new IllegalArgumentException("Unknown operator: " + operator);
+        }
+    }
+}

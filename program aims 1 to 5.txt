@@ -1,0 +1,62 @@
+Day1/
+- day1/task1/task1.java: Arithmetic operations demo (addition, subtraction, multiplication, division) and simple `add()` method.
+- day1/task1/twosum.java: Two Sum problem — find indices of two numbers that add to a given target.
+- day1/task2/task2.java: Count number of digits, compute sum of digits, and reverse an integer.
+- day1/task3/task3.java: Check whether a given integer is a palindrome.
+
+Day2/
+- day2/task1/task1.java: Use Java `Collection` (ArrayList) to store IPL team names; demo add/remove/contains.
+- day2/task2/task2.java: `IceCream` class example demonstrating constructor and object usage.
+- day2/task3/Main.java: Class/object and collection examples (ArrayList, LinkedList) and object-demo.
+- day2/task3/task3.java: Demonstrate `Set` and `Map` operations (add/remove/contains/get).
+- day2/task3/task31.java: Examples of `Set` and `Map` for account types and balances.
+- day2/task4/task4.java: Count occurrences of elements in an array (frequency map).
+- day2/task5/task5.java: Three Sum — find all unique triplets that sum to zero.
+
+Day3/
+- day3/task1/task1.java: Merge two arrays and sort the merged result.
+- day3/task1/task11.java: Merge two sorted arrays using two-pointer technique (efficient merge).
+- day3/task2/task2.java: Check if two matrices are identical (same dimensions and elements).
+- day3/task3/task3.java: Move all zeros in an array to the end (preserve order of non-zero elements).
+- day3/task4/task4.java: Pendulum arrangement of array elements (alternate left/right around center).
+- day3/task4/task41.java: Pendulum arrangement using a Deque for efficient front/back insertion.
+- day3/task5reccursion/task5.java: Compute sum 1..n via recursion (demonstrate recursion).
+- day3/task5reccursion/task51.java: Generate Fibonacci sequence using bottom-up DP approach.
+
+Day4/
+- day4/task1/task1.java: Implement a Stack using an array (push/pop/peek/isEmpty/isFull).
+- day4/task1/task11.java: `MyStack` implementation and demo (stack operations showcase).
+- day4/task2/transposematrix.java: Compute and print transpose of a 2D matrix.
+- day4/task2/task1.java: Add two matrices (element-wise matrix addition and printing helper).
+- day4/task3/isprime.java: Find the nth prime number (returns the n-th prime using trial division).
+- day4/task4/gcd.java: Compute GCD of two numbers using Euclidean algorithm.
+- day4/task4/lcm.java: Compute LCM using GCD helper.
+- day4/task4/task4.java: Find the missing number in a 1..n sequence (sum and XOR methods shown).
+- day4/task5/armstrongnumber.java: Check Armstrong numbers and list Armstrong numbers in a range.
+- day4/task5/happynumber.java: Determine whether a number is a happy number (sum of squares loop detection).
+- day4/task5/task5.java: Check for perfect numbers and demonstrate sum-of-digits helper.
+- day4/question.txt: Notes on stack ADT and use-cases (browser history, undo/redo, expression parsing).
+
+Day5/
+- day5/task1/task1.java: Stack search example for city names (demonstrates `Stack.search`).
+- day5/task1/task11.java: Another stack-search demo showing city name position from top.
+- day5/task2/task2.java: Reverse a string using a Stack (push chars then pop to reverse).
+- day5/task2/task22.java: Reverse the string "Twinkle Twinkle Little Star" by two-pointer swap.
+- day5/task2/task23.java: Reverse a string using a simple for-loop character traversal.
+- day5/task3/task3.java: Check whether a string (phrase) is a palindrome (ignores spaces and case).
+- day5/task4/task4.java: Validate parentheses (valid bracket sequence) using a stack.
+- day5/task4/task41.java: Same valid-parentheses implementation (variant).
+- day5/task4/task42.java: Valid-parentheses variant using while loop / two-pointer style.
+- day5/task4/task43.java: Valid-parentheses variant iterating reversed string (alternate approach).
+- day5/task5/task5.java: Longest Palindromic Substring — expand-around-center solution.
+- day5/anargams.txt: Notes and sample code to check whether two words are anagrams (sort or O(n) approach).
+- day5/postfix.txt: Postfix expression evaluator (stack-based evaluation of space-separated tokens).
+- day5/valid palindrome.txt: Helper snippets: valid palindrome check (LeetCode 125) and reverseString (LeetCode 344).
+
+Other docs:
+- day1/task1/question.md: Intro exercises — arithmetic ops, arrays, indexing, and basics.
+- day2/question.md: Object/class basics, collections overview, and tasks (ice-cream, IPL team collection).
+- day3/question.md: Array tasks: merge & sort, matrix equality, move zeros, recursion summary.
+- day4/readme.md & euclidian.md: Matrix transpose explanation and Euclidean GCD notes.
+
+If you'd like, I can (a) include brief usage examples for each program, (b) produce a CSV/markdown version, or (c) commit this summary to git. Which next step do you want?

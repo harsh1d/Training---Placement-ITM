@@ -1,0 +1,408 @@
+Kadane's algorithm is an efficient iterative dynamic programming method used to find the maximum sum of a contiguous subarray within a one-dimensional array of numbers. Developed by Jay Kadane in 1984, it solves the problem in a single pass. 
+
+This achieves an optimal time complexity of O(n) and a space complexity of O(1). This is a massive improvement over the brute-force approach, which requires O(n^2) time
+
+Kadane's Algorithm : Subarray
+
+NOTE:  Kindly practice all the subarray programs given below
+
+ programs related to subarrays:
+
+1. Print all subarrays of an array
+
+- Logic: Use two nested loops to generate all possible subarrays.
+
+
+public class Subarray {
+    public static void printSubarrays(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i; j < arr.length; j++) {
+                for (int k = i; k <= j; k++) {
+                    System.out.print(arr[k] + " ");
+                }
+                System.out.println();
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        printSubarrays(arr);
+    }
+}
+
+
+2. Count the number of subarrays with a given sum
+
+- Logic: Use a HashMap to store the prefix sums and their frequencies.
+
+
+public class Subarray {
+    public static int countSubarrays(int[] arr, int sum) {
+        int count = 0;
+        int prefixSum = 0;
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(0, 1);
+        for (int i = 0; i < arr.length; i++) {
+            prefixSum += arr[i];
+            if (map.containsKey(prefixSum - sum)) {
+                count += map.get(prefixSum - sum);
+            }
+            map.put(prefixSum, map.getOrDefault(prefixSum, 0) + 1);
+        }
+        return count;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        int sum = 5;
+        System.out.println("Number of subarrays with sum " + sum + ": " + countSubarrays(arr, sum));
+    }
+}
+
+
+3. Find the longest subarray with a given sum
+
+- Logic: Use a hashmap to store the prefix sums and their indices.
+
+
+public class Subarray {
+    public static int longestSubarray(int[] arr, int sum) {
+        int maxLength = 0;
+        int prefixSum = 0;
+        Map<Integer, Integer> map = new HashMap<>();
+
+	System.out.println(map.isEmpty());
+        map.put(0, -1);  // put method is builtin to insert value into map object
+        for (int i = 0; i < arr.length; i++) {
+            prefixSum += arr[i];
+            if (map.containsKey(prefixSum - sum)) {
+                maxLength = Math.max(maxLength, i - map.get(prefixSum - sum));
+            } else {
+                map.put(prefixSum, i);
+		System.out.println(map.isEmpty()); // check if map is full or not
+            }
+        }
+        return maxLength;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        int sum = 5;
+        System.out.println("Length of longest subarray with sum " + sum + ": " + longestSubarray(arr, sum));
+    }
+}
+
+
+
+4. Find the maximum sum of a subarray of size k
+
+- Logic: Use a sliding window approach to maintain a window of size k.
+
+
+public class Subarray {
+    public static int maxSumSubarray(int[] arr, int k) {
+        int maxSum = 0;
+        int windowSum = 0;
+        for (public int i = 0; i < k; i++) {
+            windowSum += arr[i];
+        }
+        maxSum = windowSum;
+        for (int i = k; i < arr.length; i++) {
+            windowSum = windowSum - arr[i - k] + arr[i];
+            maxSum = Math.max(maxSum, windowSum);
+        }
+        return maxSum;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        int k = 3;
+        System.out.println("Maximum sum of subarray of size " + k + ": " + maxSumSubarray(arr, k));
+    }
+}
+
+
+-------------------------------
+
+Subarray = a continuous part of the original array.
+
+Using the example: `[-2, 1, -3, 4, -1, 2, 1, -5, 4]`
+
+Some subarrays are:
+- `[-2]`
+- `[1, -3, 4]`
+- `[4, -1, 2, 1]`
+- `[2, 1, -5, 4]` (ends at the end)
+- `[-2, 1, -3, 4, -1, 2, 1, -5, 4]` (whole array)
+
+Key points about subarrays:
+
+1. Continuous: Elements are next to each other in original order.
+2. Order matters: `[1, -3]` is a subarray, but `[-3, 1]` isn't.
+3. Can be of any length: 1 element, full array, or anything in between.
+
+-----------------
+
+Here are all the subarrays of give array elements
+ `[-2, 1, -3, 4, -1, 2, 1, -5, 4]`:
+
+1. `[-2]`
+2. `[-2, 1]`
+3. `[-2, 1, -3]`
+4. `[-2, 1, -3, 4]`
+5. `[-2, 1, -3, 4, -1]`
+6. `[-2, 1, -3, 4, -1, 2]`
+7. `[-2, 1, -3, 4, -1, 2, 1]`
+8. `[-2, 1, -3, 4, -1, 2, 1, -5]`
+9. `[-2, 1, -3, 4, -1, 2, 1, -5, 4]`
+10. `[1]`
+11. `[1, -3]`
+12. `[1, -3, 4]`
+13. `[1, -3, 4, -1]`
+14. `[1, -3, 4, -1, 2]`
+15. `[1, -3, 4, -1, 2, 1]`
+16. `[1, -3, 4, -1, 2, 1, -5]`
+17. `[1, -3, 4, -1, 2, 1, -5, 4]`
+18. `[-3]`
+19. `[-3, 4]`
+20. `[-3, 4, -1]`
+21. `[-3, 4, -1, 2]`
+22. `[-3, 4, -1, 2, 1]`
+23. `[-3, 4, -1, 2, 1, -5]`
+24. `[-3, 4, -1, 2, 1, -5, 4]`
+25. `[4]`
+26. `[4, -1]`
+27. `[4, -1, 2]`
+28. `[4, -1, 2, 1]`
+29. `[4, -1, 2, 1, -5]`
+30. `[4, -1, 2, 1, -5, 4]`
+31. `[-1]`
+32. `[-1, 2]`
+33. `[-1, 2, 1]`
+34. `[-1, 2, 1, -5]`
+35. `[-1, 2, 1, -5, 4]`
+36. `[2]`
+37. `[2, 1]`
+38. `[2, 1, -5]`
+39. `[2, 1, -5, 4]`
+40. `[1]`
+41. `[1, -5]`
+42. `[1, -5, 4]`
+43. `[-5]`
+44. `[-5, 4]`
+45. `[4]`
+
+Total subarrays: 45
+
+For an array of size `n`, number of subarrays = `n*(n+1)/2` = `9*(9+1)/2` = 45 
+
+-------------------------------------
+
+For the Kadane's algorithm example, the best subarray  `[4, -1, 2, 1]` with sum = 6.
+
+
+Subarray ≠ Subsequence
+- Subarray = continuous
+- Subsequence = can skip elements. E.g., `[-2, 4, 1]` is a subsequence but not a subarray.
+
+-----------------------------
+
+Kadane's Algorithm is a simple and efficient way to find the maximum sum of a subarray within an array. It's like finding the best continuous chunk of numbers that add up to the largest possible value.
+
+ How it works 
+
+1. Idea: Scan the array, and at each position, decide whether to:
+    - Start a new subarray (if current element is bigger than adding it to previous sum)
+    - Extend the existing subarray (add to previous sum)
+
+2. Keep track:
+    - `currentSum`: Sum of current subarray ending at this position
+    - `maxSum`: Best sum seen so far
+
+Steps
+1. Start with `currentSum = arr[0]` and `maxSum = arr[0]`
+
+2. For each element `arr[i]`:
+    - `currentSum = max(arr[i], currentSum + arr[i])`
+    - If `arr[i]` alone is bigger, start fresh subarray here
+    - Else, extend previous subarray
+    - maxSum = max(maxSum, currentSum)
+
+3. Return `maxSum`
+
+ Example Walkthrough
+Array: `[-2, 1, -3, 4, -1, 2, 1, -5, 4]`
+i | arr[i] | currentSum (before) | currentSum (after) | maxSum
+0 | -2 | -2 | -1 | -2
+1 | 1 | -2 | 1 | 1
+2 | -3 | 1 | -2 | 1
+3 | 4 | -2 | 4 | 4
+4 | -1 | 4 | 3 | 4
+5 | 2 | 3 | 5 | 5
+6 | 1 | 5 | 6 | 6
+7 | -5 | 6 | 1 | 6
+8 | 4 | 1 | 5 | 6
+
+Result: Max sum = 6 (subarray `[4, -1, 2, 1]`)
+
+Code (Java)
+
+public class Kadane {
+    public static int maxSubarraySum(int[] arr) {
+        int currentSum = arr[0];
+        int maxSum = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            currentSum = Math.max(arr[i], currentSum + arr[i]);
+            maxSum = Math.max(maxSum, currentSum);
+        }
+        return maxSum;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+        System.out.println("Max subarray sum: " + maxSubarraySum(arr)); // 6
+    }
+}
+
+
+Key points
+- O(n) time, single pass through array
+- Handles negatives, works even if all numbers are negative (picks largest single element)
+- Can be modified to return subarray indices too
+
+-------------------------
+
+
+Subarray Programs
+
+1. Maximum Sum Subarray (Kadane's Algorithm)
+
+public class MaxSubarraySum {
+    public static int maxSubarraySum(int[] arr) {
+        int maxSum = arr[0], currentSum = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            currentSum = Math.max(arr[i], currentSum + arr[i]);
+            maxSum = Math.max(maxSum, currentSum);
+        }
+        return maxSum;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+        System.out.println("Max subarray sum: " + maxSubarraySum(arr)); // 6
+    }
+}
+
+
+2. Subarray with Given Sum
+
+public class SubarrayWithSum {
+    public static boolean subarrayWithSum(int[] arr, int target) {
+        int sum = 0, left = 0;
+        for (int i = 0; i < arr.length; i++) {
+            sum += arr[i];
+            while (sum > target) sum -= arr[left++];
+            if (sum == target) return true;
+        }
+        return false;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 4, 20, 3, 10, 5};
+        int target = 33;
+        System.out.println("Subarray with sum " + target + ": " + subarrayWithSum(arr, target)); // true
+    }
+}
+
+
+3. Largest Subarray with Equal 0s and 1s
+
+public class LargestSubarray01 {
+    public static int largestSubarray(int[] arr) {
+        int maxLen = 0, sum = 0;
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(0, -1);
+        for (int i = 0; i < arr.length; i++) {
+            sum += (arr[i] == 0) ? -1 : 1;
+            if (map.containsKey(sum)) maxLen = Math.max(maxLen, i - map.get(sum));
+            else map.put(sum, i);
+        }
+        return maxLen;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {0, 1, 0, 1, 0, 0, 1};
+        System.out.println("Largest subarray with equal 0s and 1s: " + largestSubarray(arr)); // 6
+    }
+}
+
+---------------------------------
+
+
+
+
+Subsequence Programs
+
+1. *Longest Increasing Subsequence (LIS)*
+```
+public class LIS {
+    public static int lis(int[] arr) {
+        int[] dp = new int[arr.length];
+        int maxLen = 1;
+        for (int i = 0; i < arr.length; i++) {
+            dp[i] = 1;
+            for (int j = 0; j < i; j++) {
+                if (arr[i] > arr[j]) dp[i] = Math.max(dp[i], dp[j] + 1);
+            }
+            maxLen = Math.max(maxLen, dp[i]);
+        }
+        return maxLen;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {10, 22, 9, 33, 21, 50, 41, 60};
+        System.out.println("LIS length: " + lis(arr)); // 5
+    }
+}
+
+
+2. Subsequence with Given Sum (Recursive)
+
+public class SubsequenceSum {
+    public static boolean subsetSum(int[] arr, int n, int sum) {
+        if (sum == 0) return true;
+        if (n == 0) return false;
+        if (arr[n - 1] > sum) return subsetSum(arr, n - 1, sum);
+        return subsetSum(arr, n - 1, sum) || subsetSum(arr, n - 1, sum - arr[n - 1]);
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {3, 34, 4, 12, 5, 2};
+        int sum = 9;
+        System.out.println("Subsequence with sum " + sum + ": " + subsetSum(arr, arr.length, sum)); // true
+    }
+}
+
+
+3. Longest Common Subsequence (LCS)
+
+public class LCS {
+    public static int lcs(String s1, String s2) {
+        int m = s1.length(), n = s2.length();
+        int[][] dp = new int[m + 1][n + 1];
+        for (int i = 1; i <= m; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (s1.charAt(i - 1) == s2.charAt(j - 1)) dp[i][j] = dp[i - 1][j - 1] + 1;
+                else dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+            }
+        }
+        return dp[m][n];
+    }
+
+    public static void main(String[] args) {
+        String s1 = "abcde", s2 = "ace";
+        System.out.println("LCS length: " + lcs(s1, s2)); // 3
+    }
+}
+
